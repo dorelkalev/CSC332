@@ -10,7 +10,11 @@ pid_t pid1;
 pid_t pid2;
 int pipefd[2];
 
-
+// Create the pipe
+    if (pipe(pipefd) == -1) {
+        fprintf(stderr, "Pipe creation failed\n");
+        return 1;
+    }
   
 // Fork the first child
     pid1 = fork();
