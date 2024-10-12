@@ -17,7 +17,7 @@ struct ThreadData {
 
 //Function to find the number with the maximum divisors in a given range
 void *find_max_divisors(void *arg) {
-    ThreadData *data = (ThreadData *)arg;
+struct ThreadData *data = (ThreadData *)arg;
     int max_divisors = 0;
     int number_with_max = data->start;
 
@@ -42,7 +42,7 @@ void *find_max_divisors(void *arg) {
 
 int main() {
     pthread_t threads[THREAD_COUNT];
-    ThreadData thread_data[THREAD_COUNT];
+    struct ThreadData thread_data[THREAD_COUNT];
     int range = MAX_NUM / THREAD_COUNT;
     clock_t start_time = clock();
 
