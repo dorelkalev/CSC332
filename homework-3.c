@@ -19,8 +19,7 @@ void *farmer(void *arg) {
 
     pthread_mutex_lock(&bridge_mutex);
     //Wait until the bridge is free for the direction
-    while ((current_direction != 0 && current_direction != direction) ||
-           (direction == 0 && south_count > 0) || (direction == 1 && north_count > 0)) {
+    while ((current_direction != 0 && current_direction != direction) || (direction == 0 && south_count > 0) || (direction == 1 && north_count > 0)) {
         if (direction == 0) north_count++;
         else south_count++;
         pthread_cond_wait(&bridge_cond, &bridge_mutex);
