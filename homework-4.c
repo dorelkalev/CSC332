@@ -6,6 +6,10 @@
 #define NUM_CYLINDERS 10000
 #define NUM_REQUESTS 1000
 
+int compare(const int* a, const int* b) {
+    return (*a - *b);
+}
+
 //Function to calculate total head movement for FCFS algorithm
 int FCFS(int requests[], int num_requests, int initial_position) {
     int head = initial_position;
@@ -74,10 +78,6 @@ int C_SCAN(int requests[], int num_requests, int initial_position, int num_cylin
     total_head_movement += (num_cylinders - 1 - lower[0]);
 
     return total_head_movement;
-}
-
-int compare(const int* a, const int* b) {
-    return (*a - *b);
 }
 
 //Function to generate random disk requests
